@@ -1,0 +1,33 @@
+{
+  "name": "Event",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "number",
+      "required": true
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "date": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "photos": {
+      "type": "hasMany",
+      "model": "photo",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

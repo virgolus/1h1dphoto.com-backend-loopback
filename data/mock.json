@@ -1,0 +1,28 @@
+{
+  "ids": {
+    "User": 0,
+    "AccessToken": 3,
+    "ACL": 1,
+    "RoleMapping": 1,
+    "Role": 1,
+    "Photo": 1,
+    "Event": 1,
+    "CustomUser": 2
+  },
+  "models": {
+    "User": {},
+    "AccessToken": {
+      "gYaSgt7f1VCriFgYAEKCE8HbaaGMelsnqTDcTVVgbouUeSCn7DnDddbA1kWRKlzI": "{\"id\":\"gYaSgt7f1VCriFgYAEKCE8HbaaGMelsnqTDcTVVgbouUeSCn7DnDddbA1kWRKlzI\",\"ttl\":1209600,\"created\":\"2017-07-13T23:07:30.906Z\",\"userId\":1}",
+      "qsn4Nb1wAsnO6cjCEkKQsQ3YPqWoMd3QCdGZW6YqvGzDIskzG2HVY93A00lI2Z6V": "{\"id\":\"qsn4Nb1wAsnO6cjCEkKQsQ3YPqWoMd3QCdGZW6YqvGzDIskzG2HVY93A00lI2Z6V\",\"ttl\":1209600,\"created\":\"2017-07-13T23:10:43.132Z\",\"userId\":1}",
+      "Rm44kQYGDNM2ppioAjh4GRDCg4F4Tfvsjc20NvN9ZlqhAViCrXJDlH6U4aC8DNPv": "{\"id\":\"Rm44kQYGDNM2ppioAjh4GRDCg4F4Tfvsjc20NvN9ZlqhAViCrXJDlH6U4aC8DNPv\",\"ttl\":1209600,\"created\":\"2017-07-13T23:14:27.789Z\",\"userId\":1}"
+    },
+    "ACL": {},
+    "RoleMapping": {},
+    "Role": {},
+    "Photo": {},
+    "Event": {},
+    "CustomUser": {
+      "1": "{\"username\":\"virgolus\",\"password\":\"$2a$10$miSQlQ5atiBgdwJKN9BWreTJT5y8IgYbGNUGI3PliMkxg9do4IDSO\",\"email\":\"virgolus@gmail.com\",\"id\":1}"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "restartable": "rs",
+  "ignore": [
+    ".vscode",
+    ".idea",
+    ".git",
+    "node_modules"
+  ],
+  "verbose": true,
+  "watch": [
+    "server/"
+  ]
+}
