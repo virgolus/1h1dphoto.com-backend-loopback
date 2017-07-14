@@ -36,6 +36,9 @@
     "dataSource": "db",
     "public": false
   },
+  "Email": {
+    "dataSource": "Email"
+  },
   "Photo": {
     "dataSource": "db",
     "public": true

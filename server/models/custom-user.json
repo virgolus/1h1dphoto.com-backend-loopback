@@ -33,6 +33,12 @@
       "principalId": "$everyone",
       "permission": "ALLOW",
       "property": "customLogin"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "customCreate"
     }
   ],
   "methods": {}
