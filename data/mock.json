@@ -1,20 +1,20 @@
 {
   "ids": {
     "User": 0,
-    "AccessToken": 3,
+    "AccessToken": 8,
     "ACL": 1,
     "RoleMapping": 1,
     "Role": 1,
     "Photo": 1,
     "Event": 1,
-    "CustomUser": 13
+    "CustomUser": 17
   },
   "models": {
     "User": {},
     "AccessToken": {
-      "gYaSgt7f1VCriFgYAEKCE8HbaaGMelsnqTDcTVVgbouUeSCn7DnDddbA1kWRKlzI": "{\"id\":\"gYaSgt7f1VCriFgYAEKCE8HbaaGMelsnqTDcTVVgbouUeSCn7DnDddbA1kWRKlzI\",\"ttl\":1209600,\"created\":\"2017-07-13T23:07:30.906Z\",\"userId\":1}",
-      "qsn4Nb1wAsnO6cjCEkKQsQ3YPqWoMd3QCdGZW6YqvGzDIskzG2HVY93A00lI2Z6V": "{\"id\":\"qsn4Nb1wAsnO6cjCEkKQsQ3YPqWoMd3QCdGZW6YqvGzDIskzG2HVY93A00lI2Z6V\",\"ttl\":1209600,\"created\":\"2017-07-13T23:10:43.132Z\",\"userId\":1}",
-      "Rm44kQYGDNM2ppioAjh4GRDCg4F4Tfvsjc20NvN9ZlqhAViCrXJDlH6U4aC8DNPv": "{\"id\":\"Rm44kQYGDNM2ppioAjh4GRDCg4F4Tfvsjc20NvN9ZlqhAViCrXJDlH6U4aC8DNPv\",\"ttl\":1209600,\"created\":\"2017-07-13T23:14:27.789Z\",\"userId\":1}"
+      "XyfyTU65c8grUYEpWYqn3FmYAcmCPOj9dpvuz2OrxGmI5gVCOZ0B1uN2dKdJB5mM": "{\"id\":\"XyfyTU65c8grUYEpWYqn3FmYAcmCPOj9dpvuz2OrxGmI5gVCOZ0B1uN2dKdJB5mM\",\"ttl\":1209600,\"created\":\"2017-07-14T20:59:17.324Z\",\"userId\":11}",
+      "s34lcTo8QA4bZVcEg76hqrOLWCZADN6sePHSheR6TfIj7EJR6iCGPBEeOjHksUJc": "{\"id\":\"s34lcTo8QA4bZVcEg76hqrOLWCZADN6sePHSheR6TfIj7EJR6iCGPBEeOjHksUJc\",\"ttl\":1209600,\"created\":\"2017-07-14T21:22:49.889Z\",\"userId\":16}",
+      "gw5gzyFJ06UTQJyQdpnoBWkTEv2aLJ1GOH3xq6pbj3xfcpbJnAWiYSY53Z3R9I8m": "{\"id\":\"gw5gzyFJ06UTQJyQdpnoBWkTEv2aLJ1GOH3xq6pbj3xfcpbJnAWiYSY53Z3R9I8m\",\"ttl\":1209600,\"created\":\"2017-07-14T21:23:40.566Z\",\"userId\":16}"
     },
     "ACL": {},
     "RoleMapping": {},
@@ -23,7 +23,8 @@
     "Event": {},
     "CustomUser": {
       "11": "{\"username\":\"virgolus\",\"password\":\"$2a$10$IJ7qVwmnJ/PsnjwPZN69UuWbc6p6USCCcMkDyESR6OxPCdoWpBtQu\",\"email\":\"virgolus@gmail.com\",\"id\":11}",
-      "12": "{\"username\":\"enricod\",\"password\":\"$2a$10$614T4bjwaDCAjuAEMNqXSOOOORyhHAEoJVMt9B.vZKGUp2ZkmrHQy\",\"email\":\"enrico.donelli@gmail.com\",\"id\":12}"
+      "12": "{\"username\":\"enricod\",\"password\":\"$2a$10$614T4bjwaDCAjuAEMNqXSOOOORyhHAEoJVMt9B.vZKGUp2ZkmrHQy\",\"email\":\"enrico.donelli@gmail.com\",\"id\":12}",
+      "16": "{\"username\":\"virgolus1\",\"password\":\"$2a$10$7.M5zP4mOWj.TBw9q/eHXObp/3HxEMXZoXZsu0uoqnrNCI9WQVGrS\",\"email\":\"ezio.vergine@gmail.com\",\"id\":16}"
     }
   }
 }
