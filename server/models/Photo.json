@@ -10,9 +10,6 @@
     "date": {
       "type": "date"
     },
-    "user": {
-      "type": "string"
-    },
     "description": {
       "type": "string"
     },
@@ -25,7 +22,12 @@
   "relations": {
     "event": {
       "type": "belongsTo",
-      "model": "event",
+      "model": "Event",
+      "foreignKey": ""
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "CustomUser",
       "foreignKey": ""
     }
   },

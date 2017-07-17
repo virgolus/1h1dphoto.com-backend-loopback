@@ -22,9 +22,14 @@
   },
   "validations": [],
   "relations": {
-    "photos": {
+    "photo": {
       "type": "hasMany",
-      "model": "photo",
+      "model": "Photo",
+      "foreignKey": ""
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "CustomUser",
       "foreignKey": ""
     }
   },

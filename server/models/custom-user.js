@@ -2,6 +2,62 @@
 
 module.exports = function (CustomUser) {
 
+
+    /**
+     * Login
+     * => Se utente esiste -> invia nuovo codice via email
+     * => Se utente NON esiste -> crea utente ed invia codice via email
+     * 
+     * Return:
+     * token sessione per utilizzo API
+     */
+    CustomUser.customRegister = function (username, email, cb) {
+        var tokenTimeToLive = 0; //in ms
+
+        CustomUser.findOne({
+            where: {
+                and: [
+                    { username: username },
+                    { email: email }
+                ]
+            }
+        }, function (err, user) {
+            // Errore in fase di ricerca utente (non capisco quando si possa verificare)
+            if (err) {
+                return cb(new Error(err.message), null);
+            } else {
+                if (user) {
+                    // Utente esistente: invio email con nuovo codice, creo token e ritorno
+                    var accessCode = makeid();
+                    sendEmail(user, accessCode);
+                    user.updateAttribute("password", accessCode, () => {
+                        createAccessToken(user, (error, token) => {
+                            return cb(error, token);
+                        });
+                    })
+                } else {
+                    // Utente non esiste, lo creo
+                    return customCreate(username, email, function (err, user) {
+                        if (err) {
+                            return cb(new Error(err.message), null);
+                        } else {
+                            createAccessToken(user, cb);
+                        }
+                    });
+                }
+            }
+        });
+    };
+
+    CustomUser.remoteMethod('customRegister', {
+        accepts: [
+            { arg: 'username', type: 'string', required: true },
+            { arg: 'email', type: 'string', required: true }
+        ],
+        returns: { arg: 'credentials', type: 'object', root: true },
+        description: "Custom user register"
+    });
+
     /**
      * Login
      * => Se utente esiste -> invia nuovo codice via email
@@ -25,13 +81,13 @@ module.exports = function (CustomUser) {
                 return cb(new Error(err.message), null);
             } else {
                 if (user) {
-                    // Utente esistente, creo token e ritorno
-                    createAccessToken(user, function (error, token) {
+                    // Utente esistente: invio email con nuovo codice, creo token e ritorno
+                    createAccessToken(user, (error, token) => {
                         return cb(error, token);
                     });
                 } else {
                     // Utente non esiste, lo creo
-                    return CustomUser.customCreate(username, email, function (err, user) {
+                    return customCreate(username, email, function (err, user) {
                         if (err) {
                             return cb(new Error(err.message), null);
                         } else {
@@ -53,11 +109,12 @@ module.exports = function (CustomUser) {
     });
 
     // Creazione utente ed invio email
-    CustomUser.customCreate = function (username, email, cb) {
+    function customCreate(username, email, cb) {
+        var accessCode = makeid();
         var credentials = {
             username: username,
             email: email,
-            password: makeid()
+            password: accessCode
         }
         CustomUser.create(credentials, function (err, user) {
             if (err) {
@@ -65,7 +122,7 @@ module.exports = function (CustomUser) {
             } else {
                 if (user) {
                     // send email - async
-                    sendEmail(credentials);
+                    sendEmail(credentials, accessCode);
 
                     return cb(null, user);
                 } else {
@@ -74,16 +131,6 @@ module.exports = function (CustomUser) {
             }
         });
     };
-
-    CustomUser.remoteMethod('customCreate', {
-        accepts: [
-            { arg: 'username', type: 'string', required: true },
-            { arg: 'email', type: 'string', required: true }
-        ],
-        returns: { arg: 'credentials', type: 'object', root: true },
-        http: { verb: 'post' },
-        description: "Custom user create"
-    });
 
     // Generazione codice
     function makeid() {
@@ -104,11 +151,11 @@ module.exports = function (CustomUser) {
     }
 
     // invio email
-    function sendEmail(credentials) {
+    function sendEmail(credentials, accessCode) {
         // WTF
         var from = CustomUser.app.dataSources.Email.settings.transports[0].auth.user;
         // Email template
-        var html = "<style>.element {display: inline-block;background-color: #aaaaaa;height: 150px;width: 150px;transform: skew(20deg);font-size: 20px;padding: 1px;color: white;margin-right: auto;margin-left: auto;animation: roll 3s infinite;animation-direction: alternate;}@keyframes roll {0% {transform: rotate(0);}100% {transform: rotate(360deg);}}body, html {height: 100%;}</style><h3>" + credentials.username + ", welcome to 1H1DPhoto !!</h3><p>Confirmation CODE:</p><div class=\"element\"><h1>" + credentials.password + "</h1></div>"
+        var html = "<style>.element {display: inline-block;background-color: #aaaaaa;height: 150px;width: 150px;transform: skew(20deg);font-size: 20px;padding: 1px;color: white;margin-right: auto;margin-left: auto;animation: roll 3s infinite;animation-direction: alternate;}@keyframes roll {0% {transform: rotate(0);}100% {transform: rotate(360deg);}}body, html {height: 100%;}</style><h3>" + credentials.username + ", welcome to 1H1DPhoto !!</h3><p>Confirmation CODE:</p><div class=\"element\"><h1>" + accessCode + "</h1></div>"
 
         // send email using Email model of Loopback    
         CustomUser.app.models.Email.send({

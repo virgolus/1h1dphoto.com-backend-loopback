@@ -38,7 +38,7 @@
       "principalType": "ROLE",
       "principalId": "$everyone",
       "permission": "ALLOW",
-      "property": "customCreate"
+      "property": "customRegister"
     }
   ],
   "methods": {}
