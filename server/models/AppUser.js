@@ -1,20 +1,20 @@
 'use strict';
 
-module.exports = function (CustomUser) {
+module.exports = function (AppUser) {
 
 
     /**
-     * Login
+     * Register
      * => Se utente esiste -> invia nuovo codice via email
      * => Se utente NON esiste -> crea utente ed invia codice via email
      * 
      * Return:
      * token sessione per utilizzo API
      */
-    CustomUser.customRegister = function (username, email, cb) {
+    AppUser.register = function (username, email, cb) {
         var tokenTimeToLive = 0; //in ms
 
-        CustomUser.findOne({
+        AppUser.findOne({
             where: {
                 and: [
                     { username: username },
@@ -49,7 +49,7 @@ module.exports = function (CustomUser) {
         });
     };
 
-    CustomUser.remoteMethod('customRegister', {
+    AppUser.remoteMethod('register', {
         accepts: [
             { arg: 'username', type: 'string', required: true },
             { arg: 'email', type: 'string', required: true }
@@ -66,9 +66,9 @@ module.exports = function (CustomUser) {
      * Return:
      * token sessione per utilizzo API
      */
-    CustomUser.customLogin = function (username, email, cb) {
+    AppUser.signin = function (username, email, cb) {
         var tokenTimeToLive = 0; //in ms
-        CustomUser.findOne({
+        AppUser.findOne({
             where: {
                 and: [
                     { username: username },
@@ -99,7 +99,7 @@ module.exports = function (CustomUser) {
         });
     };
 
-    CustomUser.remoteMethod('customLogin', {
+    AppUser.remoteMethod('signin', {
         accepts: [
             { arg: 'username', type: 'string', required: true },
             { arg: 'email', type: 'string', required: true }
@@ -116,7 +116,7 @@ module.exports = function (CustomUser) {
             email: email,
             password: accessCode
         }
-        CustomUser.create(credentials, function (err, user) {
+        AppUser.create(credentials, function (err, user) {
             if (err) {
                 return cb(err, null);
             } else {
@@ -153,12 +153,12 @@ module.exports = function (CustomUser) {
     // invio email
     function sendEmail(credentials, accessCode) {
         // WTF
-        var from = CustomUser.app.dataSources.Email.settings.transports[0].auth.user;
+        var from = AppUser.app.dataSources.Email.settings.transports[0].auth.user;
         // Email template
         var html = "<style>.element {display: inline-block;background-color: #aaaaaa;height: 150px;width: 150px;transform: skew(20deg);font-size: 20px;padding: 1px;color: white;margin-right: auto;margin-left: auto;animation: roll 3s infinite;animation-direction: alternate;}@keyframes roll {0% {transform: rotate(0);}100% {transform: rotate(360deg);}}body, html {height: 100%;}</style><h3>" + credentials.username + ", welcome to 1H1DPhoto !!</h3><p>Confirmation CODE:</p><div class=\"element\"><h1>" + accessCode + "</h1></div>"
 
         // send email using Email model of Loopback    
-        CustomUser.app.models.Email.send({
+        AppUser.app.models.Email.send({
             to: credentials.email,
             from: from,
             subject: 'Your custom email subject here',

@@ -1,38 +1,34 @@
 {
   "ids": {
     "User": 0,
-    "AccessToken": 17,
+    "AccessToken": 26,
     "ACL": 1,
     "RoleMapping": 1,
     "Role": 1,
-    "Photo": 5,
-    "Event": 3,
-    "CustomUser": 17
+    "Photo": 6,
+    "Event": 5,
+    "AppUser": 17
   },
   "models": {
     "User": {},
     "AccessToken": {
-      "s34lcTo8QA4bZVcEg76hqrOLWCZADN6sePHSheR6TfIj7EJR6iCGPBEeOjHksUJc": "{\"id\":\"s34lcTo8QA4bZVcEg76hqrOLWCZADN6sePHSheR6TfIj7EJR6iCGPBEeOjHksUJc\",\"ttl\":1209600,\"created\":\"2017-07-14T21:22:49.889Z\",\"userId\":16}",
-      "gw5gzyFJ06UTQJyQdpnoBWkTEv2aLJ1GOH3xq6pbj3xfcpbJnAWiYSY53Z3R9I8m": "{\"id\":\"gw5gzyFJ06UTQJyQdpnoBWkTEv2aLJ1GOH3xq6pbj3xfcpbJnAWiYSY53Z3R9I8m\",\"ttl\":1209600,\"created\":\"2017-07-14T21:23:40.566Z\",\"userId\":16}",
-      "VC4V2wbGyLt62dAjr0tx6mYdNh0eYc7xLERuPyuDZa7hVnsMyarti0wiHs8525By": "{\"id\":\"VC4V2wbGyLt62dAjr0tx6mYdNh0eYc7xLERuPyuDZa7hVnsMyarti0wiHs8525By\",\"ttl\":1209600,\"created\":\"2017-07-17T11:39:10.392Z\",\"userId\":11}",
-      "wYEyvFcOgfuAyI8J7cjoWe8b2obLX26SDMs21aQmUFBS8CmBcsZ3qNER4sPhm9kW": "{\"id\":\"wYEyvFcOgfuAyI8J7cjoWe8b2obLX26SDMs21aQmUFBS8CmBcsZ3qNER4sPhm9kW\",\"ttl\":1209600,\"created\":\"2017-07-17T11:39:31.215Z\",\"userId\":11}"
+      "uDmFqERt7CxHM1XeOPsDnrsRD7psEU2JKCwZBqJhlvehXSfeNUJrewN65K90GGPc": "{\"id\":\"uDmFqERt7CxHM1XeOPsDnrsRD7psEU2JKCwZBqJhlvehXSfeNUJrewN65K90GGPc\",\"ttl\":1209600,\"created\":\"2017-07-17T19:23:40.143Z\",\"userId\":11}"
     },
     "ACL": {},
     "RoleMapping": {},
     "Role": {},
     "Photo": {
-      "1": "{\"date\":\"2017-07-17T11:51:02.386Z\",\"description\":\"meme\",\"uri\":\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTesmPVmhv4vmC1MElCsSacglse00-Q0TufklhuAKgpyTj2vn_NA\",\"userId\":11,\"id\":1,\"eventId\":2}",
-      "2": "{\"date\":\"2017-07-12T11:51:02.386Z\",\"description\":\"meme 2\",\"uri\":\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKjXV83DPx_YM9nOt6hlKrBt_2mM_JyZpXw72fsU6VQIJQw8G8\",\"userId\":11,\"id\":2,\"eventId\":2}",
-      "3": "{\"date\":\"2017-07-12T11:51:02.386Z\",\"description\":\"meme 3\",\"uri\":\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKjXV83DPx_YM9nOt6hlKrBt_2mM_JyZpXw72fsU6VQIJQw8G8\",\"userId\":11,\"id\":3,\"eventId\":2}",
-      "4": "{\"date\":\"2017-07-12T11:51:02.386Z\",\"description\":\"meme 4\",\"uri\":\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKjXV83DPx_YM9nOt6hlKrBt_2mM_JyZpXw72fsU6VQIJQw8G8\",\"userId\":11,\"id\":4,\"eventId\":2}"
+      "5": "{\"date\":\"2017-07-17T12:29:46.417Z\",\"description\":\"image 1\",\"uri\":\"string\",\"eventId\":4,\"userId\":11,\"id\":5}",
+      "6": "{\"date\":\"2017-07-17T12:29:46.417Z\",\"description\":\"aaaa\",\"uri\":\"string\",\"eventId\":4,\"userId\":11,\"id\":6}",
+      "7": "{\"date\":\"2017-07-17T12:29:46.417Z\",\"description\":\"last\",\"uri\":\"string\",\"eventId\":4,\"userId\":11,\"id\":7}"
     },
     "Event": {
-      "2": "{\"name\":\"test01\",\"description\":\"Evento di test\",\"date\":\"2017-07-17T11:51:02.276Z\",\"userId\":11,\"id\":2}"
+      "3": "{\"name\":\"string\",\"description\":\"string\",\"date\":\"2017-07-17T12:27:02.168Z\",\"userId\":11,\"id\":3}",
+      "4": "{\"name\":\"string\",\"description\":\"string\",\"date\":\"2017-07-17T12:29:46.246Z\",\"userId\":11,\"id\":4}"
     },
-    "CustomUser": {
-      "11": "{\"username\":\"virgolus\",\"password\":\"$2a$10$6epTW8IvSyjdQWMuH02.Z.PMBSNxXl1/NwT1IO4NWS05YTfKCV5Py\",\"email\":\"virgolus@gmail.com\",\"id\":11}",
-      "12": "{\"username\":\"enricod\",\"password\":\"$2a$10$614T4bjwaDCAjuAEMNqXSOOOORyhHAEoJVMt9B.vZKGUp2ZkmrHQy\",\"email\":\"enrico.donelli@gmail.com\",\"id\":12}",
-      "16": "{\"username\":\"virgolus1\",\"password\":\"$2a$10$7.M5zP4mOWj.TBw9q/eHXObp/3HxEMXZoXZsu0uoqnrNCI9WQVGrS\",\"email\":\"ezio.vergine@gmail.com\",\"id\":16}"
+    "AppUser": {
+      "11": "{\"username\":\"virgolus\",\"password\":\"$2a$10$LZypm/Zrc3oahSWNUYypMOKkCIk.AnKPqZhT.dd3v0ep.mZktzZXa\",\"email\":\"virgolus@gmail.com\",\"id\":11}",
+      "12": "{\"username\":\"enricod\",\"password\":\"$2a$10$614T4bjwaDCAjuAEMNqXSOOOORyhHAEoJVMt9B.vZKGUp2ZkmrHQy\",\"email\":\"enrico.donelli@gmail.com\",\"id\":12}"
     }
   }
 }

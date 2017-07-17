@@ -1,0 +1,195 @@
+{
+	"variables": [],
+	"info": {
+		"name": "1H1Dphoto",
+		"_postman_id": "4e9dfbda-8ac5-032a-8e3b-03452fd10a34",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "events",
+			"request": {
+				"url": {
+					"raw": "{{host}}/api/events/?filter[include]=photo&filter[include]=user",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"events",
+						""
+					],
+					"query": [
+						{
+							"key": "filter[include]",
+							"value": "photo",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "filter[include]",
+							"value": "user",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "event by id",
+			"request": {
+				"url": {
+					"raw": "{{host}}/api/events/?filter[include]=photo&filter[include]=user",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"events",
+						""
+					],
+					"query": [
+						{
+							"key": "filter[include]",
+							"value": "photo",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "filter[include]",
+							"value": "user",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "photos",
+			"request": {
+				"url": {
+					"raw": "{{host}}/api/photos/?filter[include]=user&filter[include]=event",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"photos",
+						""
+					],
+					"query": [
+						{
+							"key": "filter[include]",
+							"value": "user",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "filter[include]",
+							"value": "event",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "photos by id",
+			"request": {
+				"url": {
+					"raw": "{{host}}/api/photos/5?filter[include]=user&filter[include]=event",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"photos",
+						"5"
+					],
+					"query": [
+						{
+							"key": "filter[include]",
+							"value": "user",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "filter[include]",
+							"value": "event",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "signin",
+			"request": {
+				"url": "{{host}}/api/AppUsers/signin",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"virgolus\",\n\t\"email\": \"virgolus@gmail.com\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "register",
+			"request": {
+				"url": "{{host}}/api/AppUsers/register",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"virgolus\",\n\t\"email\": \"virgolus@gmail.com\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

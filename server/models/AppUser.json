@@ -1,6 +1,6 @@
 {
-  "name": "CustomUser",
-  "plural": "CustomUsers",
+  "name": "AppUser",
+  "plural": "AppUsers",
   "base": "User",
   "idInjection": true,
   "options": {
@@ -32,13 +32,13 @@
       "principalType": "ROLE",
       "principalId": "$everyone",
       "permission": "ALLOW",
-      "property": "customLogin"
+      "property": "signin"
     },
     {
       "principalType": "ROLE",
       "principalId": "$everyone",
       "permission": "ALLOW",
-      "property": "customRegister"
+      "property": "register"
     }
   ],
   "methods": {}

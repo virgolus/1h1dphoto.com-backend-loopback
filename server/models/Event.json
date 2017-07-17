@@ -29,7 +29,7 @@
     },
     "user": {
       "type": "belongsTo",
-      "model": "CustomUser",
+      "model": "AppUser",
       "foreignKey": ""
     }
   },

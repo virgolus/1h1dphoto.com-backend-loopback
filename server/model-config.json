@@ -47,7 +47,7 @@
     "dataSource": "db",
     "public": true
   },
-  "CustomUser": {
+  "AppUser": {
     "dataSource": "db",
     "public": true
   }
