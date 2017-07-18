@@ -11,13 +11,13 @@
 			"name": "events",
 			"request": {
 				"url": {
-					"raw": "{{host}}/api/events/?filter[include]=photo&filter[include]=user",
+					"raw": "{{host}}/api/Events/?filter[include]=photo&filter[include]=user",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"events",
+						"Events",
 						""
 					],
 					"query": [
@@ -37,7 +37,13 @@
 					"variable": []
 				},
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"description": ""
+					}
+				],
 				"body": {},
 				"description": ""
 			},
@@ -73,7 +79,13 @@
 					"variable": []
 				},
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"description": ""
+					}
+				],
 				"body": {},
 				"description": ""
 			},
@@ -109,7 +121,13 @@
 					"variable": []
 				},
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"description": ""
+					}
+				],
 				"body": {},
 				"description": ""
 			},
@@ -145,7 +163,13 @@
 					"variable": []
 				},
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"description": ""
+					}
+				],
 				"body": {},
 				"description": ""
 			},
@@ -153,6 +177,20 @@
 		},
 		{
 			"name": "signin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests['Signin'] = (jsonData.token !== undefined && !!jsonData.token);",
+							"postman.setEnvironmentVariable(\"token\", jsonData.token);",
+							""
+						]
+					}
+				}
+			],
 			"request": {
 				"url": "{{host}}/api/AppUsers/signin",
 				"method": "POST",
@@ -173,8 +211,22 @@
 		},
 		{
 			"name": "register",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests['Signin'] = (jsonData.token !== undefined && !!jsonData.token);",
+							"postman.setEnvironmentVariable(\"token\", jsonData.token);",
+							""
+						]
+					}
+				}
+			],
 			"request": {
-				"url": "{{host}}/api/AppUsers/register",
+				"url": "{{host}}/api/appusers/register",
 				"method": "POST",
 				"header": [
 					{

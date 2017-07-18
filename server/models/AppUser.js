@@ -32,16 +32,26 @@ module.exports = function (AppUser) {
                     sendEmail(user, accessCode);
                     user.updateAttribute("password", accessCode, () => {
                         createAccessToken(user, (error, token) => {
-                            return cb(error, token);
+                            let response = {
+                                code: accessCode,
+                                token: token
+                            }
+                            return cb(error, response);
                         });
                     })
                 } else {
                     // Utente non esiste, lo creo
-                    return customCreate(username, email, function (err, user) {
+                    return appUserCreate(username, email, function (err, user, accessCode) {
                         if (err) {
                             return cb(new Error(err.message), null);
                         } else {
-                            createAccessToken(user, cb);
+                            createAccessToken(user, (err, token) => {
+                                let response = {
+                                    code: accessCode,
+                                    token: token
+                                }
+                                return cb(err, response);
+                            });
                         }
                     });
                 }
@@ -82,16 +92,22 @@ module.exports = function (AppUser) {
             } else {
                 if (user) {
                     // Utente esistente: invio email con nuovo codice, creo token e ritorno
-                    createAccessToken(user, (error, token) => {
-                        return cb(error, token);
+                    createAccessToken(user, (err, token) => {
+                        return cb(err, { token: token });
                     });
                 } else {
                     // Utente non esiste, lo creo
-                    return customCreate(username, email, function (err, user) {
+                    return appUserCreate(username, email, function (err, user, accessCode) {
                         if (err) {
                             return cb(new Error(err.message), null);
                         } else {
-                            createAccessToken(user, cb);
+                            createAccessToken(user, (err, token) => {
+                                let response = {
+                                    code: accessCode,
+                                    token: token
+                                }
+                                return cb(err, response);
+                            });
                         }
                     });
                 }
@@ -109,7 +125,7 @@ module.exports = function (AppUser) {
     });
 
     // Creazione utente ed invio email
-    function customCreate(username, email, cb) {
+    function appUserCreate(username, email, cb) {
         var accessCode = makeid();
         var credentials = {
             username: username,
@@ -124,7 +140,7 @@ module.exports = function (AppUser) {
                     // send email - async
                     sendEmail(credentials, accessCode);
 
-                    return cb(null, user);
+                    return cb(null, user, accessCode);
                 } else {
                     return cb(new Error("No User created"), null);
                 }
