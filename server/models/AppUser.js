@@ -177,7 +177,7 @@ module.exports = function (AppUser) {
         AppUser.app.models.Email.send({
             to: credentials.email,
             from: from,
-            subject: 'Your custom email subject here',
+            subject: 'Welcome to 1h1dPhoto!!!',
             html: html
         }, function (err, mail) {
             if (err) {
