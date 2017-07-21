@@ -185,7 +185,7 @@
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
 							"tests['Signin'] = (jsonData.token !== undefined && !!jsonData.token);",
-							"postman.setEnvironmentVariable(\"token\", jsonData.token);",
+							"postman.setEnvironmentVariable(\"token\", jsonData.token.id);",
 							""
 						]
 					}
@@ -219,7 +219,7 @@
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
 							"tests['Signin'] = (jsonData.token !== undefined && !!jsonData.token);",
-							"postman.setEnvironmentVariable(\"token\", jsonData.token);",
+							"postman.setEnvironmentVariable(\"token\", jsonData.token.id);",
 							""
 						]
 					}

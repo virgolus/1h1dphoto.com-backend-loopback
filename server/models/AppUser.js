@@ -2,7 +2,6 @@
 
 module.exports = function (AppUser) {
 
-
     /**
      * Register
      * => Se utente esiste -> invia nuovo codice via email
@@ -41,7 +40,7 @@ module.exports = function (AppUser) {
                     })
                 } else {
                     // Utente non esiste, lo creo
-                    return appUserCreate(username, email, function (err, user, accessCode) {
+                    return appUserCreate(username, email, (err, user, accessCode) => {
                         if (err) {
                             return cb(new Error(err.message), null);
                         } else {
@@ -96,20 +95,7 @@ module.exports = function (AppUser) {
                         return cb(err, { token: token });
                     });
                 } else {
-                    // Utente non esiste, lo creo
-                    return appUserCreate(username, email, function (err, user, accessCode) {
-                        if (err) {
-                            return cb(new Error(err.message), null);
-                        } else {
-                            createAccessToken(user, (err, token) => {
-                                let response = {
-                                    code: accessCode,
-                                    token: token
-                                }
-                                return cb(err, response);
-                            });
-                        }
-                    });
+                    return cb(new Error('User dont exist'), null);
                 }
             }
         });
